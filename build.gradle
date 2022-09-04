@@ -83,6 +83,7 @@ artifacts {
 
 processResources {
     includeEmptyDirs = false
+    exclude '**/.gitkeep'
     from ('src/main/java') {
         include '**/*.dll'
     }
