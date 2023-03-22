@@ -1,5 +1,5 @@
 /*
- * @fileoverview    {MainFrame} se encarga de realizar tareas específicas.
+ * @fileoverview    {MainFrame}
  *
  * @version         2.0
  *
