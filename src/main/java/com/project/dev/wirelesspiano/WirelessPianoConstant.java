@@ -15,7 +15,7 @@
 package com.project.dev.wirelesspiano;
 
 /**
- * TODO: Definición de {@code WirelessPianoConstant}.
+ * TODO: Description of {@code WirelessPianoConstant}.
  *
  * @author Dyson Parra
  * @since 11

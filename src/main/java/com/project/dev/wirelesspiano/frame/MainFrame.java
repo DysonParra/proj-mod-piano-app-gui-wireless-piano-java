@@ -29,7 +29,7 @@ import javax.swing.JOptionPane;
 import static com.project.dev.wirelesspiano.WirelessPianoConstant.PIANO_ICON_RES_PATH;
 
 /**
- * TODO: Definición de {@code MainFrame}.
+ * TODO: Description of {@code MainFrame}.
  *
  * @author Dyson Parra
  * @since 11
@@ -39,7 +39,7 @@ public class MainFrame extends JFrame {
     private static int pianoQuantity = 0;                                       // Cantidad de pianos locales creados.
 
     /**
-     * TODO: Definición de {@code MainFrame}.
+     * TODO: Description of {@code MainFrame}.
      *
      */
     public MainFrame() {
@@ -81,7 +81,7 @@ public class MainFrame extends JFrame {
     }
 
     /**
-     * FIXME: Definición de {@code createPianoFrame}. Crea una nueva ventana con un piano. 17 teclas
+     * FIXME: Description of {@code createPianoFrame}. Crea una nueva ventana con un piano. 17 teclas
      * = 1 Octava
      *
      * @param pianoTitle   indica la dirección ip o número del piano.
@@ -101,7 +101,7 @@ public class MainFrame extends JFrame {
     }
 
     /**
-     * FIXME: Definición de {@code getEnableAllConnections}. Obtiene el estado del botón de permitir
+     * FIXME: Description of {@code getEnableAllConnections}. Obtiene el estado del botón de permitir
      * conexiones.
      *
      * @return Si se pemiten conexiones.
@@ -111,7 +111,7 @@ public class MainFrame extends JFrame {
     }
 
     /**
-     * FIXME: Definición de {@code getDisableNewConnections}. Obtiene el estado del botón de
+     * FIXME: Description of {@code getDisableNewConnections}. Obtiene el estado del botón de
      * permitir nuevas conexiones.
      *
      * @return Si se pemiten conexiones.
@@ -121,7 +121,7 @@ public class MainFrame extends JFrame {
     }
 
     /**
-     * FIXME: Definición de {@code getDisableAllConnections}. Obtiene el estado del botón de
+     * FIXME: Description of {@code getDisableAllConnections}. Obtiene el estado del botón de
      * deshabilitar todas las conexiones
      *
      * @return Si se pemiten conexiones.
@@ -233,7 +233,7 @@ public class MainFrame extends JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     /**
-     * TODO: Definición de {@code enableAllConnectionsItemActionPerformed}.
+     * TODO: Description of {@code enableAllConnectionsItemActionPerformed}.
      *
      * @param evt
      */
@@ -255,7 +255,7 @@ public class MainFrame extends JFrame {
     }//GEN-LAST:event_enableAllConnectionsItemActionPerformed
 
     /**
-     * TODO: Definición de {@code disableNewConnectionsItemActionPerformed}.
+     * TODO: Description of {@code disableNewConnectionsItemActionPerformed}.
      *
      * @param evt
      */
@@ -270,7 +270,7 @@ public class MainFrame extends JFrame {
     }//GEN-LAST:event_disableNewConnectionsItemActionPerformed
 
     /**
-     * TODO: Definición de {@code disableAllConnectionsItemActionPerformed}.
+     * TODO: Description of {@code disableAllConnectionsItemActionPerformed}.
      *
      * @param evt
      */
@@ -285,7 +285,7 @@ public class MainFrame extends JFrame {
     }//GEN-LAST:event_disableAllConnectionsItemActionPerformed
 
     /**
-     * TODO: Definición de {@code yamahaPianoItemActionPerformed}.
+     * TODO: Description of {@code yamahaPianoItemActionPerformed}.
      *
      * @param evt
      */
@@ -295,7 +295,7 @@ public class MainFrame extends JFrame {
     }//GEN-LAST:event_yamahaPianoItemActionPerformed
 
     /**
-     * TODO: Definición de {@code electricPianoItemActionPerformed}.
+     * TODO: Description of {@code electricPianoItemActionPerformed}.
      *
      * @param evt
      */
@@ -304,7 +304,7 @@ public class MainFrame extends JFrame {
     }//GEN-LAST:event_electricPianoItemActionPerformed
 
     /**
-     * TODO: Definición de {@code exitItemActionPerformed}.
+     * TODO: Description of {@code exitItemActionPerformed}.
      *
      * @param evt
      */
@@ -313,7 +313,7 @@ public class MainFrame extends JFrame {
     }//GEN-LAST:event_exitItemActionPerformed
 
     /**
-     * TODO: Definición de {@code newLocalPianoButtonActionPerformed}.
+     * TODO: Description of {@code newLocalPianoButtonActionPerformed}.
      *
      * @param evt
      */

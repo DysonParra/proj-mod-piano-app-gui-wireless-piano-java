@@ -28,7 +28,7 @@ import lombok.Data;
 import static com.project.dev.wirelesspiano.WirelessPianoConstant.SOUNDFONT_RES_PATH;
 
 /**
- * TODO: Definición de {@code Piano}.
+ * TODO: Description of {@code Piano}.
  *
  * @author Dyson Parra
  * @since 11
@@ -49,7 +49,7 @@ public final class Piano {
     private MidiChannel[] midiChannels;                                                     // Canales de reproducción midi del piano.
 
     /**
-     * TODO: Definición de {@code Piano}.
+     * TODO: Description of {@code Piano}.
      *
      * @param keyQuantity  indica la cantidad de teclas del piano.
      * @param C4           indica el número de do que será el do central.
@@ -66,7 +66,7 @@ public final class Piano {
     }
 
     /**
-     * FIXME: Definición de {@code initMidiSystem}. Inicia el sistema midi.
+     * FIXME: Description of {@code initMidiSystem}. Inicia el sistema midi.
      *
      * @param instrumentId indica el número de instrumento con que sonará cada tecla.
      */

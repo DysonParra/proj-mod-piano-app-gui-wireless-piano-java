@@ -24,7 +24,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * TODO: Definición de {@code Application}.
+ * TODO: Description of {@code Application}.
  *
  * @author Dyson Parra
  * @since 11
@@ -51,7 +51,7 @@ public class Application {
     }
 
     /**
-     * FIXME: Definición de {@code printArray}. Imprime un array.
+     * FIXME: Description of {@code printArray}. Imprime un array.
      *
      * @param array
      */

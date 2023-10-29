@@ -23,7 +23,7 @@ import java.net.InetAddress;
 import java.net.SocketException;
 
 /**
- * TODO: Definición de {@code UdpServer}.
+ * TODO: Description of {@code UdpServer}.
  *
  * @author Dyson Parra
  * @since 11
@@ -41,7 +41,7 @@ public class UdpServer {
     public static String ipAddress;                                                                             // Ip desde donde llegue cada paquete en String.
 
     /**
-     * TODO: Definición de {@code UdpServer}.
+     * TODO: Description of {@code UdpServer}.
      *
      * @param serverPort es el puerto del servidor.
      * @param packetSize es el tamaño de los paquetes.
@@ -56,7 +56,7 @@ public class UdpServer {
     }
 
     /**
-     * FIXME: Definición de {@code startServer}. Inicia el servidor.
+     * FIXME: Description of {@code startServer}. Inicia el servidor.
      */
     public void startServer() {
         boolean requestStatus;                                                                          // Si se pudo procesar la solicitud indicada.

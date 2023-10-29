@@ -36,7 +36,7 @@ import javax.swing.JScrollPane;
 import static com.project.dev.wirelesspiano.WirelessPianoConstant.PIANO_ICON_RES_PATH;
 
 /**
- * TODO: Definición de {@code PianoFrame}.
+ * TODO: Description of {@code PianoFrame}.
  *
  * @author Dyson Parra
  * @since 11
@@ -88,7 +88,7 @@ public final class PianoFrame extends JFrame implements WirelessPianoConstant, K
     private static Icon blancaC4TcdIcon;
 
     /**
-     * FIXME: Definición de {@code PianoFrame}. Inicaliza los componentes de un PianoFrame.
+     * FIXME: Description of {@code PianoFrame}. Inicaliza los componentes de un PianoFrame.
      */
     public PianoFrame() {
         initComponents();                                                       // Inicia los componentes.
@@ -97,7 +97,7 @@ public final class PianoFrame extends JFrame implements WirelessPianoConstant, K
     }
 
     /**
-     * FIXME: Definición de {@code makePianoFrame}. Crea un nuevo frame con un piano.
+     * FIXME: Description of {@code makePianoFrame}. Crea un nuevo frame con un piano.
      *
      * @param title    es el título del piano.
      * @param isRemote indica si es un piano remoto.
@@ -123,7 +123,7 @@ public final class PianoFrame extends JFrame implements WirelessPianoConstant, K
     }
 
     /**
-     * FIXME: Definición de {@code initKeys}. Inicializa las notas en pantalla.
+     * FIXME: Description of {@code initKeys}. Inicializa las notas en pantalla.
      *
      * @param isRemote indica si es un piano remoto.
      */
@@ -230,7 +230,7 @@ public final class PianoFrame extends JFrame implements WirelessPianoConstant, K
     }
 
     /**
-     * FIXME: Definición de {@code relloadIcons}. Reescala las notas al tamaño asignado.
+     * FIXME: Description of {@code relloadIcons}. Reescala las notas al tamaño asignado.
      */
     public void relloadIcons() {
         negraIcon = new ImageIcon(negraImg.getImage().getScaledInstance(blackKeyWith, blackKeyHeigth, Image.SCALE_DEFAULT));
@@ -242,7 +242,7 @@ public final class PianoFrame extends JFrame implements WirelessPianoConstant, K
     }
 
     /**
-     * FIXME: Definición de {@code setSizes}. Asigna tamaños a cada tecla.
+     * FIXME: Description of {@code setSizes}. Asigna tamaños a cada tecla.
      */
     public void setSizes() {
         this.whiteKeyWith = (int) (whiteKeyHeigth * 0.2);                       // Asigna valor al ancho de las teclas blancas.
@@ -313,7 +313,7 @@ public final class PianoFrame extends JFrame implements WirelessPianoConstant, K
     }
 
     /**
-     * FIXME: Definición de {@code relloadKeysStatus}. Asigna colores y reproducir sonidos
+     * FIXME: Description of {@code relloadKeysStatus}. Asigna colores y reproducir sonidos
      * dependiendo del estado de cada tecla.
      *
      * @param newStatus es el nuevo estado de las teclas.
@@ -490,7 +490,7 @@ public final class PianoFrame extends JFrame implements WirelessPianoConstant, K
     }// </editor-fold>//GEN-END:initComponents
 
     /**
-     * TODO: Definición de {@code exitActionPerformed}.
+     * TODO: Description of {@code exitActionPerformed}.
      *
      * @param evt
      */
@@ -499,7 +499,7 @@ public final class PianoFrame extends JFrame implements WirelessPianoConstant, K
     }//GEN-LAST:event_exitActionPerformed
 
     /**
-     * TODO: Definición de {@code comeBackActionPerformed}.
+     * TODO: Description of {@code comeBackActionPerformed}.
      *
      * @param evt
      */
@@ -509,7 +509,7 @@ public final class PianoFrame extends JFrame implements WirelessPianoConstant, K
     }//GEN-LAST:event_comeBackActionPerformed
 
     /**
-     * TODO: Definición de {@code aumentarActionPerformed}.
+     * TODO: Description of {@code aumentarActionPerformed}.
      *
      * @param evt
      */
@@ -522,7 +522,7 @@ public final class PianoFrame extends JFrame implements WirelessPianoConstant, K
     }//GEN-LAST:event_aumentarActionPerformed
 
     /**
-     * TODO: Definición de {@code disminuirActionPerformed}.
+     * TODO: Description of {@code disminuirActionPerformed}.
      *
      * @param evt
      */
@@ -535,7 +535,7 @@ public final class PianoFrame extends JFrame implements WirelessPianoConstant, K
     }//GEN-LAST:event_disminuirActionPerformed
 
     /**
-     * TODO: Definición de {@code octava1ActionPerformed}.
+     * TODO: Description of {@code octava1ActionPerformed}.
      *
      * @param evt
      */
@@ -544,7 +544,7 @@ public final class PianoFrame extends JFrame implements WirelessPianoConstant, K
     }//GEN-LAST:event_octava1ActionPerformed
 
     /**
-     * TODO: Definición de {@code octava2ActionPerformed}.
+     * TODO: Description of {@code octava2ActionPerformed}.
      *
      * @param evt
      */
@@ -553,7 +553,7 @@ public final class PianoFrame extends JFrame implements WirelessPianoConstant, K
     }//GEN-LAST:event_octava2ActionPerformed
 
     /**
-     * TODO: Definición de {@code octava3ActionPerformed}.
+     * TODO: Description of {@code octava3ActionPerformed}.
      *
      * @param evt
      */
@@ -562,7 +562,7 @@ public final class PianoFrame extends JFrame implements WirelessPianoConstant, K
     }//GEN-LAST:event_octava3ActionPerformed
 
     /**
-     * TODO: Definición de {@code octava4ActionPerformed}.
+     * TODO: Description of {@code octava4ActionPerformed}.
      *
      * @param evt
      */
@@ -571,7 +571,7 @@ public final class PianoFrame extends JFrame implements WirelessPianoConstant, K
     }//GEN-LAST:event_octava4ActionPerformed
 
     /**
-     * TODO: Definición de {@code octava5ActionPerformed}.
+     * TODO: Description of {@code octava5ActionPerformed}.
      *
      * @param evt
      */
@@ -580,7 +580,7 @@ public final class PianoFrame extends JFrame implements WirelessPianoConstant, K
     }//GEN-LAST:event_octava5ActionPerformed
 
     /**
-     * TODO: Definición de {@code octava6ActionPerformed}.
+     * TODO: Description of {@code octava6ActionPerformed}.
      *
      * @param evt
      */
@@ -589,7 +589,7 @@ public final class PianoFrame extends JFrame implements WirelessPianoConstant, K
     }//GEN-LAST:event_octava6ActionPerformed
 
     /**
-     * TODO: Definición de {@code octava7ActionPerformed}.
+     * TODO: Description of {@code octava7ActionPerformed}.
      *
      * @param evt
      */
@@ -598,7 +598,7 @@ public final class PianoFrame extends JFrame implements WirelessPianoConstant, K
     }//GEN-LAST:event_octava7ActionPerformed
 
     /**
-     * TODO: Definición de {@code formWindowClosing}.
+     * TODO: Description of {@code formWindowClosing}.
      *
      * @param evt
      */
@@ -610,7 +610,7 @@ public final class PianoFrame extends JFrame implements WirelessPianoConstant, K
     }//GEN-LAST:event_formWindowClosing
 
     /**
-     * TODO: Definición de {@code aumentarHorizontalActionPerformed}.
+     * TODO: Description of {@code aumentarHorizontalActionPerformed}.
      *
      * @param evt
      */
@@ -622,7 +622,7 @@ public final class PianoFrame extends JFrame implements WirelessPianoConstant, K
     }//GEN-LAST:event_aumentarHorizontalActionPerformed
 
     /**
-     * TODO: Definición de {@code disminuirHorizontalActionPerformed}.
+     * TODO: Description of {@code disminuirHorizontalActionPerformed}.
      *
      * @param evt
      */
@@ -679,7 +679,7 @@ public final class PianoFrame extends JFrame implements WirelessPianoConstant, K
     // End of variables declaration//GEN-END:variables
 
     /**
-     * FIXME: Definición de {@code keyTyped}. Key Typed
+     * FIXME: Description of {@code keyTyped}. Key Typed
      *
      * @param ke es la tecla tocada.
      */
@@ -689,7 +689,7 @@ public final class PianoFrame extends JFrame implements WirelessPianoConstant, K
     }
 
     /**
-     * FIXME: Definición de {@code keyPressed}. Evalúa la tecla oprimida.
+     * FIXME: Description of {@code keyPressed}. Evalúa la tecla oprimida.
      *
      * @param ke es la tecla oprimida.
      */
@@ -871,7 +871,7 @@ public final class PianoFrame extends JFrame implements WirelessPianoConstant, K
     }
 
     /**
-     * FIXME: Definición de {@code keyReleased}. Evalúa la tecla soltada.
+     * FIXME: Description of {@code keyReleased}. Evalúa la tecla soltada.
      *
      * @param ke es la tecla soltada.
      */
@@ -1064,7 +1064,7 @@ public final class PianoFrame extends JFrame implements WirelessPianoConstant, K
     }
 
     /**
-     * TODO: Definición de {@code actionPerformed}.
+     * TODO: Description of {@code actionPerformed}.
      *
      * @param ae
      */
