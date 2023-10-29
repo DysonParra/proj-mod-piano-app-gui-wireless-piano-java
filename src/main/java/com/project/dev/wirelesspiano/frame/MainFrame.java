@@ -32,7 +32,7 @@ import static com.project.dev.wirelesspiano.WirelessPianoConstant.PIANO_ICON_RES
  * TODO: Definición de {@code MainFrame}.
  *
  * @author Dyson Parra
- * @since 1.8
+ * @since 11
  */
 public class MainFrame extends JFrame {
 

@@ -31,7 +31,7 @@ import static com.project.dev.wirelesspiano.WirelessPianoConstant.SOUNDFONT_RES_
  * TODO: Definición de {@code Piano}.
  *
  * @author Dyson Parra
- * @since 1.8
+ * @since 11
  */
 //@AllArgsConstructor
 //@Builder
