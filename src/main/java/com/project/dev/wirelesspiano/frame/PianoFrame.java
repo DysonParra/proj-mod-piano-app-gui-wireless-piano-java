@@ -49,7 +49,7 @@ public final class PianoFrame extends JFrame implements WirelessPianoConstant, K
     public JLayeredPane pianoPane;                                          // Teclas del piano.
     public JScrollPane pianoScrollPane;                                     // Panel con las teclas del piano.
     public Piano piano;                                                     // Piano de la ventana.
-    public int actualDo;                                                    // Do actual que tiene asignado la tecla 'd' del teclado.
+    public int currentDo;                                                   // Do actual que tiene asignado la tecla 'd' del teclado.
     public String title;                                                    // Título del JFrame.
     public boolean isRemote;                                                // Si es un piano remoto.
     public int keyQuantity;                                                 // Cantidad de teclas del piano.
@@ -113,7 +113,7 @@ public final class PianoFrame extends JFrame implements WirelessPianoConstant, K
         this.instrumentId = piano.getInstrumentId();                            // Obtiene el id del instrumento.
         this.status = piano.getStatus();                                        // Obtiene los estados de cada tecla.
         this.keys = piano.getKeys();                                            // Obtiene las teclas del piano.
-        actualDo = 4;                                                           // Inicializa el do actual que tiene asignado la tecla 'd' del teclado.
+        currentDo = 4;                                                          // Inicializa el do actual que tiene asignado la tecla 'd' del teclado.
         C4Offset = 60 - this.C4;                                                // Asigna valor desde el do central en el array de teclas hasta el do central en el array de midi.
 
         this.addKeyListener(this);                                              // Agrega un listener de teclas.
@@ -322,50 +322,50 @@ public final class PianoFrame extends JFrame implements WirelessPianoConstant, K
         //WirelessPiano.printArray(newStatus);
 
         for (int i = 1; i < status.length; i++) {
-            switch (newStatus[i]) {                                             // Evalúa el estado obtenido.
-                case 1:                                                         // Si el estado de la nota actual es comenzar a reproducir.
-                    switch (i % 12) {                                              // Evalúa que tecla es.
+            switch (newStatus[i]) {                                                 // Evalúa el estado obtenido.
+                case 1:                                                             // Si el estado de la nota actual es comenzar a reproducir.
+                    switch (i % 12) {                                               // Evalúa que tecla es.
                         // Si es una tecla negra.
                         case 2:
                         case 5:
                         case 7:
                         case 10:
                         case 0:
-                            keys[i].setIcon(negraTcdIcon);                      // Pone icono a la tecla negra.
-                            piano.getMidiChannels()[0].noteOn(i + C4Offset, 100); // Reproduce la nota F en el canal indicado con velocidad 100.
-                            break;                                              // Termina de evaluar que tecla es.
+                            keys[i].setIcon(negraTcdIcon);                          // Pone icono a la tecla negra.
+                            piano.getMidiChannels()[0].noteOn(i + C4Offset, 100);   // Reproduce la nota F en el canal indicado con velocidad 100.
+                            break;                                                  // Termina de evaluar que tecla es.
 
-                        default:                                                // Si no es una tecla negra.
-                            if (C4 == i)                                         // Si la tecla actual es el do central.
-                                keys[i].setIcon(blancaC4TcdIcon);               // Pone icono a la tecla blanca.
-                            else                                                // Si la tecla actual no es el do central.
-                                keys[i].setIcon(blancaTcdIcon);                 // Pone icono a la tecla blanca.
-                            piano.getMidiChannels()[0].noteOn(i + C4Offset, 100); // Reproduce la nota F en el canal indicado con velocidad 100.
-                            break;                                              // Termina de evaluar que tecla es.
+                        default:                                                    // Si no es una tecla negra.
+                            if (C4 == i)                                            // Si la tecla actual es el do central.
+                                keys[i].setIcon(blancaC4TcdIcon);                   // Pone icono a la tecla blanca.
+                            else                                                    // Si la tecla actual no es el do central.
+                                keys[i].setIcon(blancaTcdIcon);                     // Pone icono a la tecla blanca.
+                            piano.getMidiChannels()[0].noteOn(i + C4Offset, 100);   // Reproduce la nota F en el canal indicado con velocidad 100.
+                            break;                                                  // Termina de evaluar que tecla es.
                     }
-                    break;                                                      // Termina de evaluar el estado actual.
+                    break;                                                          // Termina de evaluar el estado actual.
 
-                case -1:                                                    // Si el estado de la nota actual es parar de reproducir.
-                    switch (i % 12) {                                          // Evalúa que tecla es.
+                case -1:                                                            // Si el estado de la nota actual es parar de reproducir.
+                    switch (i % 12) {                                               // Evalúa que tecla es.
                         // Si es una tecla negra.
                         case 2:
                         case 5:
                         case 7:
                         case 10:
                         case 0:
-                            keys[i].setIcon(negraIcon);                     // Pone icono a la tecla negra.
-                            piano.getMidiChannels()[0].noteOff(i + C4Offset); // Para de reproducir la nota B en el canal indicado con velocidad 100.
-                            break;                                          // Termina de evaluar que tecla es.
+                            keys[i].setIcon(negraIcon);                             // Pone icono a la tecla negra.
+                            piano.getMidiChannels()[0].noteOff(i + C4Offset);       // Para de reproducir la nota B en el canal indicado con velocidad 100.
+                            break;                                                  // Termina de evaluar que tecla es.
 
-                        default:                                            // Si no es una tecla negra.
-                            if (C4 == i)                                     // Si la tecla actual es el do central.
-                                keys[i].setIcon(blancaC4Icon);              // Pone icono a la tecla blanca.
-                            else                                            // Si la tecla actual no es el do central.
-                                keys[i].setIcon(blancaIcon);                // Pone icono a la tecla blanca.
-                            piano.getMidiChannels()[0].noteOff(i + C4Offset); // Para de reproducir la nota B en el canal indicado con velocidad 100.
-                            break;                                          // Termina de evaluar que tecla es.
+                        default:                                                    // Si no es una tecla negra.
+                            if (C4 == i)                                            // Si la tecla actual es el do central.
+                                keys[i].setIcon(blancaC4Icon);                      // Pone icono a la tecla blanca.
+                            else                                                    // Si la tecla actual no es el do central.
+                                keys[i].setIcon(blancaIcon);                        // Pone icono a la tecla blanca.
+                            piano.getMidiChannels()[0].noteOff(i + C4Offset);       // Para de reproducir la nota B en el canal indicado con velocidad 100.
+                            break;                                                  // Termina de evaluar que tecla es.
                         }
-                    break;                                                  // Termina de evaluar el estado actual.
+                    break;                                                          // Termina de evaluar el estado actual.
             }
         }
     }
@@ -540,7 +540,7 @@ public final class PianoFrame extends JFrame implements WirelessPianoConstant, K
      * @param evt
      */
     private void octava1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_octava1ActionPerformed
-        actualDo = C4 - (3 * 12);
+        currentDo = C4 - (3 * 12);
     }//GEN-LAST:event_octava1ActionPerformed
 
     /**
@@ -549,7 +549,7 @@ public final class PianoFrame extends JFrame implements WirelessPianoConstant, K
      * @param evt
      */
     private void octava2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_octava2ActionPerformed
-        actualDo = C4 - (2 * 12);
+        currentDo = C4 - (2 * 12);
     }//GEN-LAST:event_octava2ActionPerformed
 
     /**
@@ -558,7 +558,7 @@ public final class PianoFrame extends JFrame implements WirelessPianoConstant, K
      * @param evt
      */
     private void octava3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_octava3ActionPerformed
-        actualDo = C4 - (1 * 12);
+        currentDo = C4 - (1 * 12);
     }//GEN-LAST:event_octava3ActionPerformed
 
     /**
@@ -567,7 +567,7 @@ public final class PianoFrame extends JFrame implements WirelessPianoConstant, K
      * @param evt
      */
     private void octava4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_octava4ActionPerformed
-        actualDo = C4;
+        currentDo = C4;
     }//GEN-LAST:event_octava4ActionPerformed
 
     /**
@@ -576,7 +576,7 @@ public final class PianoFrame extends JFrame implements WirelessPianoConstant, K
      * @param evt
      */
     private void octava5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_octava5ActionPerformed
-        actualDo = C4 + (1 * 12);
+        currentDo = C4 + (1 * 12);
     }//GEN-LAST:event_octava5ActionPerformed
 
     /**
@@ -585,7 +585,7 @@ public final class PianoFrame extends JFrame implements WirelessPianoConstant, K
      * @param evt
      */
     private void octava6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_octava6ActionPerformed
-        actualDo = C4 + (2 * 12);
+        currentDo = C4 + (2 * 12);
     }//GEN-LAST:event_octava6ActionPerformed
 
     /**
@@ -594,7 +594,7 @@ public final class PianoFrame extends JFrame implements WirelessPianoConstant, K
      * @param evt
      */
     private void octava7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_octava7ActionPerformed
-        actualDo = C4 + (3 * 12);
+        currentDo = C4 + (3 * 12);
     }//GEN-LAST:event_octava7ActionPerformed
 
     /**
@@ -603,7 +603,7 @@ public final class PianoFrame extends JFrame implements WirelessPianoConstant, K
      * @param evt
      */
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        if (!isRemote) {                                                         // Si no es un piano remoto.
+        if (!isRemote) {                                                        // Si no es un piano remoto.
             Application.pianoFrames.remove(this.getTitle());                    // Borra el frame actual del map en la clase principal.
             dispose();                                                          // Cierra la ventana.
         }
@@ -700,153 +700,153 @@ public final class PianoFrame extends JFrame implements WirelessPianoConstant, K
         switch (c) {
             case 'a':
             case 'A':
-                if (!isRemote && status[actualDo - 3] == 0) {
-                    status[actualDo - 3] = 1;
-                    keys[actualDo - 3].setIcon(blancaTcdIcon);
-                    piano.getMidiChannels()[0].noteOn(actualDo - 3 + C4Offset, 100);// Reproduce la nota A en el canal indicado con velocidad 100.
+                if (!isRemote && status[currentDo - 3] == 0) {
+                    status[currentDo - 3] = 1;
+                    keys[currentDo - 3].setIcon(blancaTcdIcon);
+                    piano.getMidiChannels()[0].noteOn(currentDo - 3 + C4Offset, 100);// Reproduce la nota A en el canal indicado con velocidad 100.
                 }
                 break;
 
             case 'w':
             case 'W':
-                if (!isRemote && status[actualDo - 2] == 0) {
-                    status[actualDo - 2] = 1;
-                    keys[actualDo - 2].setIcon(negraTcdIcon);
-                    piano.getMidiChannels()[0].noteOn(actualDo - 2 + C4Offset, 100);// Reproduce la nota A# en el canal indicado con velocidad 100.
+                if (!isRemote && status[currentDo - 2] == 0) {
+                    status[currentDo - 2] = 1;
+                    keys[currentDo - 2].setIcon(negraTcdIcon);
+                    piano.getMidiChannels()[0].noteOn(currentDo - 2 + C4Offset, 100);// Reproduce la nota A# en el canal indicado con velocidad 100.
                 }
                 break;
 
             case 's':
             case 'S':
-                if (!isRemote && status[actualDo - 1] == 0) {
-                    status[actualDo - 1] = 1;
-                    keys[actualDo - 1].setIcon(blancaTcdIcon);
-                    piano.getMidiChannels()[0].noteOn(actualDo - 1 + C4Offset, 100);// Reproduce la nota B en el canal indicado con velocidad 100.
+                if (!isRemote && status[currentDo - 1] == 0) {
+                    status[currentDo - 1] = 1;
+                    keys[currentDo - 1].setIcon(blancaTcdIcon);
+                    piano.getMidiChannels()[0].noteOn(currentDo - 1 + C4Offset, 100);// Reproduce la nota B en el canal indicado con velocidad 100.
                 }
                 break;
 
             case 'd':
             case 'D':
-                if (!isRemote && status[actualDo + 0] == 0) {
-                    if (C4 == actualDo)
-                        keys[actualDo + 0].setIcon(blancaC4TcdIcon);
+                if (!isRemote && status[currentDo + 0] == 0) {
+                    if (C4 == currentDo)
+                        keys[currentDo + 0].setIcon(blancaC4TcdIcon);
                     else
-                        keys[actualDo + 0].setIcon(blancaTcdIcon);
+                        keys[currentDo + 0].setIcon(blancaTcdIcon);
 
-                    status[actualDo + 0] = 1;
-                    piano.getMidiChannels()[0].noteOn(actualDo + 0 + C4Offset, 100);// Reproduce la nota C en el canal indicado con velocidad 100.
+                    status[currentDo + 0] = 1;
+                    piano.getMidiChannels()[0].noteOn(currentDo + 0 + C4Offset, 100);// Reproduce la nota C en el canal indicado con velocidad 100.
                 }
                 break;
 
             case 'r':
             case 'R':
-                if (!isRemote && status[actualDo + 1] == 0) {
-                    status[actualDo + 1] = 1;
-                    keys[actualDo + 1].setIcon(negraTcdIcon);
-                    piano.getMidiChannels()[0].noteOn(actualDo + 1 + C4Offset, 100);// Reproduce la nota C# en el canal indicado con velocidad 100.
+                if (!isRemote && status[currentDo + 1] == 0) {
+                    status[currentDo + 1] = 1;
+                    keys[currentDo + 1].setIcon(negraTcdIcon);
+                    piano.getMidiChannels()[0].noteOn(currentDo + 1 + C4Offset, 100);// Reproduce la nota C# en el canal indicado con velocidad 100.
                 }
                 break;
 
             case 'f':
             case 'F':
-                if (!isRemote && status[actualDo + 2] == 0) {
-                    status[actualDo + 2] = 1;
-                    keys[actualDo + 2].setIcon(blancaTcdIcon);
-                    piano.getMidiChannels()[0].noteOn(actualDo + 2 + C4Offset, 100);// Reproduce la nota D en el canal indicado con velocidad 100.
+                if (!isRemote && status[currentDo + 2] == 0) {
+                    status[currentDo + 2] = 1;
+                    keys[currentDo + 2].setIcon(blancaTcdIcon);
+                    piano.getMidiChannels()[0].noteOn(currentDo + 2 + C4Offset, 100);// Reproduce la nota D en el canal indicado con velocidad 100.
                 }
                 break;
 
             case 't':
             case 'T':
-                if (!isRemote && status[actualDo + 3] == 0) {
-                    status[actualDo + 3] = 1;
-                    keys[actualDo + 3].setIcon(negraTcdIcon);
-                    piano.getMidiChannels()[0].noteOn(actualDo + 3 + C4Offset, 100);// Reproduce la nota D# en el canal indicado con velocidad 100.
+                if (!isRemote && status[currentDo + 3] == 0) {
+                    status[currentDo + 3] = 1;
+                    keys[currentDo + 3].setIcon(negraTcdIcon);
+                    piano.getMidiChannels()[0].noteOn(currentDo + 3 + C4Offset, 100);// Reproduce la nota D# en el canal indicado con velocidad 100.
                 }
                 break;
 
             case 'g':
             case 'G':
-                if (!isRemote && status[actualDo + 4] == 0) {
-                    status[actualDo + 4] = 1;
-                    keys[actualDo + 4].setIcon(blancaTcdIcon);
-                    piano.getMidiChannels()[0].noteOn(actualDo + 4 + C4Offset, 100);// Reproduce la nota E en el canal indicado con velocidad 100.
+                if (!isRemote && status[currentDo + 4] == 0) {
+                    status[currentDo + 4] = 1;
+                    keys[currentDo + 4].setIcon(blancaTcdIcon);
+                    piano.getMidiChannels()[0].noteOn(currentDo + 4 + C4Offset, 100);// Reproduce la nota E en el canal indicado con velocidad 100.
                 }
                 break;
 
             case 'h':
             case 'H':
-                if (!isRemote && status[actualDo + 5] == 0) {
-                    status[actualDo + 5] = 1;
-                    keys[actualDo + 5].setIcon(blancaTcdIcon);
-                    piano.getMidiChannels()[0].noteOn(actualDo + 5 + C4Offset, 100);// Reproduce la nota F en el canal indicado con velocidad 100.
+                if (!isRemote && status[currentDo + 5] == 0) {
+                    status[currentDo + 5] = 1;
+                    keys[currentDo + 5].setIcon(blancaTcdIcon);
+                    piano.getMidiChannels()[0].noteOn(currentDo + 5 + C4Offset, 100);// Reproduce la nota F en el canal indicado con velocidad 100.
                 }
                 break;
 
             case 'u':
             case 'U':
-                if (!isRemote && status[actualDo + 6] == 0) {
-                    status[actualDo + 6] = 1;
-                    keys[actualDo + 6].setIcon(negraTcdIcon);
-                    piano.getMidiChannels()[0].noteOn(actualDo + 6 + C4Offset, 100);// Reproduce la nota F# en el canal indicado con velocidad 100.
+                if (!isRemote && status[currentDo + 6] == 0) {
+                    status[currentDo + 6] = 1;
+                    keys[currentDo + 6].setIcon(negraTcdIcon);
+                    piano.getMidiChannels()[0].noteOn(currentDo + 6 + C4Offset, 100);// Reproduce la nota F# en el canal indicado con velocidad 100.
                 }
                 break;
 
             case 'j':
             case 'J':
-                if (!isRemote && status[actualDo + 7] == 0) {
-                    status[actualDo + 7] = 1;
-                    keys[actualDo + 7].setIcon(blancaTcdIcon);
-                    piano.getMidiChannels()[0].noteOn(actualDo + 7 + C4Offset, 100);// Reproduce la nota G en el canal indicado con velocidad 100.
+                if (!isRemote && status[currentDo + 7] == 0) {
+                    status[currentDo + 7] = 1;
+                    keys[currentDo + 7].setIcon(blancaTcdIcon);
+                    piano.getMidiChannels()[0].noteOn(currentDo + 7 + C4Offset, 100);// Reproduce la nota G en el canal indicado con velocidad 100.
                 }
                 break;
 
             case 'i':
             case 'I':
-                if (!isRemote && status[actualDo + 8] == 0) {
-                    status[actualDo + 8] = 1;
-                    keys[actualDo + 8].setIcon(negraTcdIcon);
-                    piano.getMidiChannels()[0].noteOn(actualDo + 8 + C4Offset, 100);// Reproduce la nota G# en el canal indicado con velocidad 100.
+                if (!isRemote && status[currentDo + 8] == 0) {
+                    status[currentDo + 8] = 1;
+                    keys[currentDo + 8].setIcon(negraTcdIcon);
+                    piano.getMidiChannels()[0].noteOn(currentDo + 8 + C4Offset, 100);// Reproduce la nota G# en el canal indicado con velocidad 100.
                 }
                 break;
 
             case 'k':
             case 'K':
-                if (!isRemote && status[actualDo + 9] == 0) {
-                    status[actualDo + 9] = 1;
-                    keys[actualDo + 9].setIcon(blancaTcdIcon);
-                    piano.getMidiChannels()[0].noteOn(actualDo + 9 + C4Offset, 100);// Reproduce la nota A en el canal indicado con velocidad 100.
+                if (!isRemote && status[currentDo + 9] == 0) {
+                    status[currentDo + 9] = 1;
+                    keys[currentDo + 9].setIcon(blancaTcdIcon);
+                    piano.getMidiChannels()[0].noteOn(currentDo + 9 + C4Offset, 100);// Reproduce la nota A en el canal indicado con velocidad 100.
                 }
                 break;
 
             case 'o':
             case 'O':
-                if (!isRemote && status[actualDo + 10] == 0) {
-                    status[actualDo + 10] = 1;
-                    keys[actualDo + 10].setIcon(negraTcdIcon);
-                    piano.getMidiChannels()[0].noteOn(actualDo + 10 + C4Offset, 100);// Reproduce la nota A# en el canal indicado con velocidad 100.
+                if (!isRemote && status[currentDo + 10] == 0) {
+                    status[currentDo + 10] = 1;
+                    keys[currentDo + 10].setIcon(negraTcdIcon);
+                    piano.getMidiChannels()[0].noteOn(currentDo + 10 + C4Offset, 100);// Reproduce la nota A# en el canal indicado con velocidad 100.
                 }
                 break;
 
             case 'l':
             case 'L':
-                if (!isRemote && status[actualDo + 11] == 0) {
-                    status[actualDo + 11] = 1;
-                    keys[actualDo + 11].setIcon(blancaTcdIcon);
-                    piano.getMidiChannels()[0].noteOn(actualDo + 11 + C4Offset, 100);// Reproduce la nota B en el canal indicado con velocidad 100.
+                if (!isRemote && status[currentDo + 11] == 0) {
+                    status[currentDo + 11] = 1;
+                    keys[currentDo + 11].setIcon(blancaTcdIcon);
+                    piano.getMidiChannels()[0].noteOn(currentDo + 11 + C4Offset, 100);// Reproduce la nota B en el canal indicado con velocidad 100.
                 }
                 break;
 
             case 'ñ':
             case 'Ñ':
-                if (!isRemote && status[actualDo + 12] == 0) {
-                    if (C4 == actualDo + 12)
-                        keys[actualDo + 12].setIcon(blancaC4TcdIcon);
+                if (!isRemote && status[currentDo + 12] == 0) {
+                    if (C4 == currentDo + 12)
+                        keys[currentDo + 12].setIcon(blancaC4TcdIcon);
                     else
-                        keys[actualDo + 12].setIcon(blancaTcdIcon);
+                        keys[currentDo + 12].setIcon(blancaTcdIcon);
 
-                    status[actualDo + 12] = 1;
-                    piano.getMidiChannels()[0].noteOn(actualDo + 12 + C4Offset, 100);// Reproduce la nota C en el canal indicado con velocidad 100.
+                    status[currentDo + 12] = 1;
+                    piano.getMidiChannels()[0].noteOn(currentDo + 12 + C4Offset, 100);// Reproduce la nota C en el canal indicado con velocidad 100.
                 }
                 break;
 
@@ -882,151 +882,151 @@ public final class PianoFrame extends JFrame implements WirelessPianoConstant, K
         switch (c) {
             case 'a':
             case 'A':
-                if (!isRemote) {                                                 // Si no es un piano remoto.
-                    status[actualDo - 3] = 0;
-                    keys[actualDo - 3].setIcon(blancaIcon);
-                    piano.getMidiChannels()[0].noteOff(actualDo - 3 + C4Offset);    // Para de reproducir la nota A en el canal indicado con velocidad 100.
+                if (!isRemote) {                                                    // Si no es un piano remoto.
+                    status[currentDo - 3] = 0;
+                    keys[currentDo - 3].setIcon(blancaIcon);
+                    piano.getMidiChannels()[0].noteOff(currentDo - 3 + C4Offset);   // Para de reproducir la nota A en el canal indicado con velocidad 100.
                 }
                 break;
 
             case 'w':
             case 'W':
-                if (!isRemote) {                                                 // Si no es un piano remoto.
-                    status[actualDo - 2] = 0;
-                    keys[actualDo - 2].setIcon(negraIcon);
-                    piano.getMidiChannels()[0].noteOff(actualDo - 2 + C4Offset);    // Para de reproducir la nota A# en el canal indicado con velocidad 100.
+                if (!isRemote) {                                                    // Si no es un piano remoto.
+                    status[currentDo - 2] = 0;
+                    keys[currentDo - 2].setIcon(negraIcon);
+                    piano.getMidiChannels()[0].noteOff(currentDo - 2 + C4Offset);   // Para de reproducir la nota A# en el canal indicado con velocidad 100.
                 }
                 break;
 
             case 's':
             case 'S':
-                if (!isRemote) {                                                 // Si no es un piano remoto.
-                    status[actualDo - 1] = 0;
-                    keys[actualDo - 1].setIcon(blancaIcon);
-                    piano.getMidiChannels()[0].noteOff(actualDo - 1 + C4Offset);    // Para de reproducir la nota B en el canal indicado con velocidad 100.
+                if (!isRemote) {                                                    // Si no es un piano remoto.
+                    status[currentDo - 1] = 0;
+                    keys[currentDo - 1].setIcon(blancaIcon);
+                    piano.getMidiChannels()[0].noteOff(currentDo - 1 + C4Offset);   // Para de reproducir la nota B en el canal indicado con velocidad 100.
                 }
                 break;
 
             case 'd':
             case 'D':
-                if (!isRemote) {                                                 // Si no es un piano remoto.
-                    status[actualDo + 0] = 0;
-                    if (C4 == actualDo)
-                        keys[actualDo + 0].setIcon(blancaC4Icon);
+                if (!isRemote) {                                                    // Si no es un piano remoto.
+                    status[currentDo + 0] = 0;
+                    if (C4 == currentDo)
+                        keys[currentDo + 0].setIcon(blancaC4Icon);
                     else
-                        keys[actualDo + 0].setIcon(blancaIcon);
-                    piano.getMidiChannels()[0].noteOff(actualDo + 0 + C4Offset);    // Para de reproducir la nota C en el canal indicado con velocidad 100.
+                        keys[currentDo + 0].setIcon(blancaIcon);
+                    piano.getMidiChannels()[0].noteOff(currentDo + 0 + C4Offset);    // Para de reproducir la nota C en el canal indicado con velocidad 100.
                 }
                 break;
 
             case 'r':
             case 'R':
-                if (!isRemote) {                                                 // Si no es un piano remoto.
-                    status[actualDo + 1] = 0;
-                    keys[actualDo + 1].setIcon(negraIcon);
-                    piano.getMidiChannels()[0].noteOff(actualDo + 1 + C4Offset);    // Para de reproducir la nota C# en el canal indicado con velocidad 100.
+                if (!isRemote) {                                                    // Si no es un piano remoto.
+                    status[currentDo + 1] = 0;
+                    keys[currentDo + 1].setIcon(negraIcon);
+                    piano.getMidiChannels()[0].noteOff(currentDo + 1 + C4Offset);   // Para de reproducir la nota C# en el canal indicado con velocidad 100.
                 }
                 break;
 
             case 'f':
             case 'F':
-                if (!isRemote) {                                                 // Si no es un piano remoto.
-                    status[actualDo + 2] = 0;
-                    keys[actualDo + 2].setIcon(blancaIcon);
-                    piano.getMidiChannels()[0].noteOff(actualDo + 2 + C4Offset);        // Para de reproducir la nota D en el canal indicado con velocidad 100.
+                if (!isRemote) {                                                    // Si no es un piano remoto.
+                    status[currentDo + 2] = 0;
+                    keys[currentDo + 2].setIcon(blancaIcon);
+                    piano.getMidiChannels()[0].noteOff(currentDo + 2 + C4Offset);   // Para de reproducir la nota D en el canal indicado con velocidad 100.
                 }
                 break;
 
             case 't':
             case 'T':
-                if (!isRemote) {                                                 // Si no es un piano remoto.
-                    status[actualDo + 3] = 0;
-                    keys[actualDo + 3].setIcon(negraIcon);
-                    piano.getMidiChannels()[0].noteOff(actualDo + 3 + C4Offset);    // Para de reproducir la nota D# en el canal indicado con velocidad 100.
+                if (!isRemote) {                                                    // Si no es un piano remoto.
+                    status[currentDo + 3] = 0;
+                    keys[currentDo + 3].setIcon(negraIcon);
+                    piano.getMidiChannels()[0].noteOff(currentDo + 3 + C4Offset);   // Para de reproducir la nota D# en el canal indicado con velocidad 100.
                 }
                 break;
 
             case 'g':
             case 'G':
-                if (!isRemote) {                                                 // Si no es un piano remoto.
-                    status[actualDo + 4] = 0;
-                    keys[actualDo + 4].setIcon(blancaIcon);
-                    piano.getMidiChannels()[0].noteOff(actualDo + 4 + C4Offset);    // Para de reproducir la nota E en el canal indicado con velocidad 100.
+                if (!isRemote) {                                                    // Si no es un piano remoto.
+                    status[currentDo + 4] = 0;
+                    keys[currentDo + 4].setIcon(blancaIcon);
+                    piano.getMidiChannels()[0].noteOff(currentDo + 4 + C4Offset);   // Para de reproducir la nota E en el canal indicado con velocidad 100.
                 }
                 break;
 
             case 'h':
             case 'H':
-                if (!isRemote) {                                                 // Si no es un piano remoto.
-                    status[actualDo + 5] = 0;
-                    keys[actualDo + 5].setIcon(blancaIcon);
-                    piano.getMidiChannels()[0].noteOff(actualDo + 5 + C4Offset);    // Para de reproducir la nota F en el canal indicado con velocidad 100.
+                if (!isRemote) {                                                    // Si no es un piano remoto.
+                    status[currentDo + 5] = 0;
+                    keys[currentDo + 5].setIcon(blancaIcon);
+                    piano.getMidiChannels()[0].noteOff(currentDo + 5 + C4Offset);   // Para de reproducir la nota F en el canal indicado con velocidad 100.
                 }
                 break;
 
             case 'u':
             case 'U':
-                if (!isRemote) {                                                 // Si no es un piano remoto.
-                    status[actualDo + 6] = 0;
-                    keys[actualDo + 6].setIcon(negraIcon);
-                    piano.getMidiChannels()[0].noteOff(actualDo + 6 + C4Offset);    // Para de reproducir la nota F# en el canal indicado con velocidad 100.
+                if (!isRemote) {                                                    // Si no es un piano remoto.
+                    status[currentDo + 6] = 0;
+                    keys[currentDo + 6].setIcon(negraIcon);
+                    piano.getMidiChannels()[0].noteOff(currentDo + 6 + C4Offset);   // Para de reproducir la nota F# en el canal indicado con velocidad 100.
                 }
                 break;
 
             case 'j':
             case 'J':
-                if (!isRemote) {                                                 // Si no es un piano remoto.
-                    status[actualDo + 7] = 0;
-                    keys[actualDo + 7].setIcon(blancaIcon);
-                    piano.getMidiChannels()[0].noteOff(actualDo + 7 + C4Offset);    // Para de reproducir la nota G en el canal indicado con velocidad 100.
+                if (!isRemote) {                                                    // Si no es un piano remoto.
+                    status[currentDo + 7] = 0;
+                    keys[currentDo + 7].setIcon(blancaIcon);
+                    piano.getMidiChannels()[0].noteOff(currentDo + 7 + C4Offset);   // Para de reproducir la nota G en el canal indicado con velocidad 100.
                 }
                 break;
 
             case 'i':
             case 'I':
-                if (!isRemote) {                                                 // Si no es un piano remoto.
-                    status[actualDo + 8] = 0;
-                    keys[actualDo + 8].setIcon(negraIcon);
-                    piano.getMidiChannels()[0].noteOff(actualDo + 8 + C4Offset);    // Para de reproducir la nota G# en el canal indicado con velocidad 100.
+                if (!isRemote) {                                                    // Si no es un piano remoto.
+                    status[currentDo + 8] = 0;
+                    keys[currentDo + 8].setIcon(negraIcon);
+                    piano.getMidiChannels()[0].noteOff(currentDo + 8 + C4Offset);   // Para de reproducir la nota G# en el canal indicado con velocidad 100.
                 }
                 break;
 
             case 'k':
             case 'K':
-                if (!isRemote) {                                                 // Si no es un piano remoto.
-                    status[actualDo + 9] = 0;
-                    keys[actualDo + 9].setIcon(blancaIcon);
-                    piano.getMidiChannels()[0].noteOff(actualDo + 9 + C4Offset);    // Para de reproducir la nota A en el canal indicado con velocidad 100.
+                if (!isRemote) {                                                    // Si no es un piano remoto.
+                    status[currentDo + 9] = 0;
+                    keys[currentDo + 9].setIcon(blancaIcon);
+                    piano.getMidiChannels()[0].noteOff(currentDo + 9 + C4Offset);   // Para de reproducir la nota A en el canal indicado con velocidad 100.
                 }
                 break;
 
             case 'o':
             case 'O':
-                if (!isRemote) {                                                 // Si no es un piano remoto.
-                    status[actualDo + 10] = 0;
-                    keys[actualDo + 10].setIcon(negraIcon);
-                    piano.getMidiChannels()[0].noteOff(actualDo + 10 + C4Offset);   // Para de reproducir la nota A# en el canal indicado con velocidad 100.
+                if (!isRemote) {                                                    // Si no es un piano remoto.
+                    status[currentDo + 10] = 0;
+                    keys[currentDo + 10].setIcon(negraIcon);
+                    piano.getMidiChannels()[0].noteOff(currentDo + 10 + C4Offset);  // Para de reproducir la nota A# en el canal indicado con velocidad 100.
                 }
                 break;
 
             case 'l':
             case 'L':
-                if (!isRemote) {                                                 // Si no es un piano remoto.
-                    status[actualDo + 11] = 0;
-                    keys[actualDo + 11].setIcon(blancaIcon);
-                    piano.getMidiChannels()[0].noteOff(actualDo + 11 + C4Offset);   // Para de reproducir la nota B en el canal indicado con velocidad 100.
+                if (!isRemote) {                                                    // Si no es un piano remoto.
+                    status[currentDo + 11] = 0;
+                    keys[currentDo + 11].setIcon(blancaIcon);
+                    piano.getMidiChannels()[0].noteOff(currentDo + 11 + C4Offset);  // Para de reproducir la nota B en el canal indicado con velocidad 100.
                 }
                 break;
 
             case 'ñ':
             case 'Ñ':
-                if (!isRemote) {                                                 // Si no es un piano remoto.
-                    status[actualDo + 12] = 0;
-                    if (C4 == actualDo + 12)
-                        keys[actualDo + 12].setIcon(blancaC4Icon);
+                if (!isRemote) {                                                    // Si no es un piano remoto.
+                    status[currentDo + 12] = 0;
+                    if (C4 == currentDo + 12)
+                        keys[currentDo + 12].setIcon(blancaC4Icon);
                     else
-                        keys[actualDo + 12].setIcon(blancaIcon);
-                    piano.getMidiChannels()[12].noteOff(actualDo + 12 + C4Offset);  // Para de reproducir la nota C en el canal indicado con velocidad 100.
+                        keys[currentDo + 12].setIcon(blancaIcon);
+                    piano.getMidiChannels()[12].noteOff(currentDo + 12 + C4Offset); // Para de reproducir la nota C en el canal indicado con velocidad 100.
                 }
                 break;
 
@@ -1034,13 +1034,13 @@ public final class PianoFrame extends JFrame implements WirelessPianoConstant, K
                 switch (key) {
                     case KeyEvent.VK_MINUS:
                     case KeyEvent.VK_SUBTRACT:
-                        if (actualDo - 12 > 0)
-                            actualDo -= 12;
+                        if (currentDo - 12 > 0)
+                            currentDo -= 12;
                         break;
 
                     case KeyEvent.VK_ADD:
-                        if (actualDo + 13 < piano.getKeyQuantity())
-                            actualDo += 12;
+                        if (currentDo + 13 < piano.getKeyQuantity())
+                            currentDo += 12;
                         break;
 
                     case KeyEvent.VK_UP:
