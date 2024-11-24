@@ -45,9 +45,9 @@ public class MainFrame extends JFrame {
     public MainFrame() {
         initComponents();
 
-        initComponents();
+        System.out.println(PIANO_ICON_RES_PATH);
         this.setIconImage(
-                new ImageIcon(JFrame.class.getResource(PIANO_ICON_RES_PATH)).getImage());
+                new ImageIcon(MainFrame.class.getResource(PIANO_ICON_RES_PATH)).getImage());
 
         this.setTitle("MENÚ PRINCIPAL");
         this.getContentPane().setBackground(Color.WHITE);

@@ -93,7 +93,7 @@ public final class PianoFrame extends JFrame implements WirelessPianoConstant, K
     public PianoFrame() {
         initComponents();                                                       // Inicia los componentes.
         this.setIconImage(
-                new ImageIcon(JFrame.class.getResource(PIANO_ICON_RES_PATH)).getImage());
+                new ImageIcon(PianoFrame.class.getResource(PIANO_ICON_RES_PATH)).getImage());
     }
 
     /**
