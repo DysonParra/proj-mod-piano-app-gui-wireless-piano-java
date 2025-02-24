@@ -18,7 +18,7 @@ package com.project.dev.wirelesspiano;
  * TODO: Description of {@code WirelessPianoConstant}.
  *
  * @author Dyson Parra
- * @since 11
+ * @since Java 17 (LTS), Gradle 7.3
  */
 public interface WirelessPianoConstant {
 

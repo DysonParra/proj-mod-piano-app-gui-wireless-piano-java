@@ -39,7 +39,7 @@ import static com.project.dev.wirelesspiano.WirelessPianoConstant.PIANO_ICON_RES
  * TODO: Description of {@code PianoFrame}.
  *
  * @author Dyson Parra
- * @since 11
+ * @since Java 17 (LTS), Gradle 7.3
  */
 public final class PianoFrame extends JFrame implements WirelessPianoConstant, KeyListener, ActionListener {
 

@@ -31,7 +31,7 @@ import static com.project.dev.wirelesspiano.WirelessPianoConstant.SOUNDFONT_RES_
  * TODO: Description of {@code Piano}.
  *
  * @author Dyson Parra
- * @since 11
+ * @since Java 17 (LTS), Gradle 7.3
  */
 //@AllArgsConstructor
 //@Builder
