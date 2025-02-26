@@ -41,7 +41,7 @@ public class UdpServer {
     public static String ipAddress;                                                                             // Ip desde donde llegue cada paquete en String.
 
     /**
-     * TODO: Description of {@code UdpServer}.
+     * TODO: Description of method {@code UdpServer}.
      *
      * @param serverPort es el puerto del servidor.
      * @param packetSize es el tamaño de los paquetes.
@@ -56,7 +56,7 @@ public class UdpServer {
     }
 
     /**
-     * FIXME: Description of {@code startServer}. Inicia el servidor.
+     * FIXME: Description of method {@code startServer}. Inicia el servidor.
      *
      */
     public void startServer() {

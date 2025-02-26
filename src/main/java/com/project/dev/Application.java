@@ -51,7 +51,7 @@ public class Application {
     }
 
     /**
-     * FIXME: Description of {@code printArray}. Imprime un array.
+     * FIXME: Description of method {@code printArray}. Imprime un array.
      *
      * @param array
      */

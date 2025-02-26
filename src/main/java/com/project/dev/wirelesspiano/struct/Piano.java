@@ -49,7 +49,7 @@ public final class Piano {
     private MidiChannel[] midiChannels;                                                     // Canales de reproducción midi del piano.
 
     /**
-     * TODO: Description of {@code Piano}.
+     * TODO: Description of method {@code Piano}.
      *
      * @param keyQuantity  indica la cantidad de teclas del piano.
      * @param C4           indica el número de do que será el do central.
@@ -66,7 +66,7 @@ public final class Piano {
     }
 
     /**
-     * FIXME: Description of {@code initMidiSystem}. Inicia el sistema midi.
+     * FIXME: Description of method {@code initMidiSystem}. Inicia el sistema midi.
      *
      * @param instrumentId indica el número de instrumento con que sonará cada tecla.
      */
