@@ -89,6 +89,7 @@ public final class PianoFrame extends JFrame implements WirelessPianoConstant, K
 
     /**
      * FIXME: Description of {@code PianoFrame}. Inicaliza los componentes de un PianoFrame.
+     *
      */
     public PianoFrame() {
         initComponents();                                                       // Inicia los componentes.
@@ -231,6 +232,7 @@ public final class PianoFrame extends JFrame implements WirelessPianoConstant, K
 
     /**
      * FIXME: Description of {@code relloadIcons}. Reescala las notas al tamaño asignado.
+     *
      */
     public void relloadIcons() {
         negraIcon = new ImageIcon(negraImg.getImage().getScaledInstance(blackKeyWith, blackKeyHeigth, Image.SCALE_DEFAULT));
@@ -243,6 +245,7 @@ public final class PianoFrame extends JFrame implements WirelessPianoConstant, K
 
     /**
      * FIXME: Description of {@code setSizes}. Asigna tamaños a cada tecla.
+     *
      */
     public void setSizes() {
         this.whiteKeyWith = (int) (whiteKeyHeigth * 0.2);                       // Asigna valor al ancho de las teclas blancas.
