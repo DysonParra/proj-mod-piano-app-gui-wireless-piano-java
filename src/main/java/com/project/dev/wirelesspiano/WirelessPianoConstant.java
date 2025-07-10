@@ -1,5 +1,5 @@
 /*
- * @fileoverview    {WirelessPianoConstant}
+ * @overview        {WirelessPianoConstant}
  *
  * @version         2.0
  *

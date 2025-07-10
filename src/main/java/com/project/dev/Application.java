@@ -1,5 +1,5 @@
 /*
- * @fileoverview    {Application}
+ * @overview        {Application}
  *
  * @version         2.0
  *
@@ -39,7 +39,7 @@ public class Application {
     /**
      * Entrada principal del sistema.
      *
-     * @param args argumentos de la linea de comandos.
+     * @param args argumentos pasados por consola.
      * @throws java.net.SocketException
      */
     public static void main(String[] args) throws SocketException {
